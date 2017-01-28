@@ -1,5 +1,5 @@
 # AlgorithmFun
-Repository of daily algorithm challenges with my best/first solutions using JavaScript<br>
+Repository of daily algorithm challenges with my solutions using JavaScript<br>
 I will update in individual files my solutions with the file name as the algorithm problem name<br>
 All code will be written in JavaScript unless otherwise noted in the filename<br><br>
 
