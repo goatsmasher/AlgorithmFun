@@ -1,0 +1,25 @@
+Given two strings, is the second string a rotation of the first string. Do not use substring function.
+
+For example:
+ Str1 = Tomato
+ 
+ Return True - 
+ Str2 = matoto
+ 
+ Return False -
+ Str2 = otamto
+
+
+function stringRotation(str1, str2){
+ var newstr = str1;
+ for(var i = 0; i < str1.length; i++){
+   if(newstr == str2){
+     return true;
+   }
+ var lastIndex = str1.slice(str1.length-(1+i));
+ var strSplice = str1.slice(0, str1.length - (1+i));
+   newstr = lastIndex + strSplice;
+ }
+   return false
+}
+
