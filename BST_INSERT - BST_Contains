@@ -1,0 +1,68 @@
+function BST(){
+  this.root = null
+}
+ 
+function Node(x){
+  this.value = x;
+  this.left = null;
+  this.right = null;
+}
+
+
+BST.prototype.Insert = function(x){
+  var root = this.root;
+
+   if(!root){
+      this.root = new Node(x);
+      return;
+   }
+
+   var currentNode = root;
+   var newNode = new Node(x); 
+
+   while(currentNode){
+      if(x < currentNode.value){
+          if(!currentNode.left){
+             currentNode.left = newNode;
+             break;
+          }
+          else{
+             currentNode = currentNode.left;
+        }
+     }
+     else{
+         if(!currentNode.right){
+            currentNode.right = newNode;
+            break;
+         }
+         else{
+            currentNode = currentNode.right;
+         }
+     }
+  }
+
+}
+
+
+BST.prototype.Contains = function(x){
+  var root = this.root;
+  
+  if(!root){
+    return false;
+  }
+  
+  var currentNode = root;
+  
+  while(currentNode){
+    if(x == currentNode){
+      return true;
+    }
+    elif(x < currentNode.value){
+      currentNode = currentNode.left;
+    }
+    else(x > currentNode.value){
+      currentNode = currentNode.right;
+    }
+  }
+  return false;
+}
