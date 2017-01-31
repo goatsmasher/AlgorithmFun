@@ -1,0 +1,21 @@
+function BST(){
+  this.root = null
+}
+ 
+function Node(x){
+  this.value = x;
+  this.left = null;
+  this.right = null;
+}
+
+//user an call this on a tree without passing a root
+BST.prototype.Height = function(){
+  return BST.prototype._Height(this.root, count);
+}
+
+//user can call on this passing a root or node
+BST.prototype._Height = function(node, count = 0){
+  var left = _Height(node.left, count++)
+  var right = _Height(node.right, count++
+  return math.max(left, right);
+}
