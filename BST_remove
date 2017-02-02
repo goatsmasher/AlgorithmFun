@@ -1,0 +1,57 @@
+BST.prototype.Remove = function(node){
+  if(!this.root || node == undefined){
+    return -1;
+  }
+  if(!(node instance of Node)){
+      node = new Node(node);
+  }
+  var current = this.root;
+  var parent = current;
+  while(current.value != node.value){
+      if (current.value < node.value){
+          parent = current;
+          current = current.right;
+      }
+      else{
+          parent = current;
+          current = current.left;
+      }
+  }
+  if (current.value != node.value){
+      return -1;
+  }
+  if (!current.left && !current.right){
+    if (current.value < parent.value){
+        parent.left = null;
+    }
+    else{
+        parent.right = null;
+    }
+  }
+  if (current.left){
+      var runner = current.left;
+      var papa = current;
+      while (runner.right){
+          papa = runner;
+          runner = runner.right;
+      }
+    else{
+        var runner = current.right;
+        var papa = current;
+        while (runner.left){
+            papa = runner;
+            runner = runner.left;
+        }
+    }
+  }
+    var temp = current;
+    current = runner;
+    runner = temp;
+    if(current.value < papa.value){
+        papa.left = null;
+    }
+    else{
+        papa.right = null;
+    }
+    return runner
+  }
