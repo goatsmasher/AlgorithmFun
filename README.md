@@ -7,3 +7,4 @@ All code will be written in JavaScript unless otherwise noted in the filename<br
 1/28/2017 - Is string2 a rotation of string 1<br>
 1/30/2017 - Insert a node into a BST. Does a BST contain a certain value<br>
 1/31/2017 - Find the height of a BST<br>
+2/2/2017 - Remove a node or value from a BST while keeping it a BST<br>
