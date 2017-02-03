@@ -1,0 +1,16 @@
+function isValid(){
+    if (!this.root){
+        return true;
+    }
+    return helper(root, -Infinity, Infinity);
+}
+
+function helper(node, min, max){
+    if (!node){
+        return true;
+    }    
+    if ( nod.value < min || node.value > max ){
+        return false;
+    }
+    return helper(node.left, min, node.val) && helper(node.right, node.val, max);
+}
