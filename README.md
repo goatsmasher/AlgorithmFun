@@ -10,3 +10,4 @@ All code will be written in JavaScript unless otherwise noted in the filename<br
 2/2/2017 - Remove a node or value from a BST while keeping it a BST<br>
 2/3/2017 - Check to see if a BST is valid<br>
 2/7/2017 - BubbleSort and SelectionSort<br>
+2/8/2017 - Helper functions for mergesort and quicksort<br>
