@@ -12,3 +12,4 @@ All code will be written in JavaScript unless otherwise noted in the filename<br
 2/7/2017 - BubbleSort and SelectionSort<br>
 2/8/2017 - Helper functions for mergesort and quicksort<br>
 2/9/2017 - Quicksort<br>
+2/10/2017 - Mergesort<br>
