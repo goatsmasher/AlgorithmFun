@@ -1,0 +1,53 @@
+// return only one instance of each number in the final array where the sets are single sets (no repeating values)
+
+function unionSet(set1, set2) {
+    var i = 0;
+    var k = 0;
+    var result = [];
+
+    while (i < set1.length && k < set2.length) {
+        if (set1[i] === set2[k]) {
+            result.push(set1[i]);
+            i++;
+            k++;
+        }
+        else if (set1[i] < set2[k]) {
+            result.push(set1[i]);
+            i++;
+        }
+        else {
+            result.push(set2[k]);
+            k++;
+        }
+    }
+    if (i === set1.length) {
+        result += set2.slice(set2[k]);
+    }
+    else {
+        result += set1.slice(set1[i]);
+    }
+    return result;
+}
+
+
+// return where there are common intersecting values
+
+function intersectMultiset(set1, set2){
+    var holder = {};
+    var result = [];
+    for(var i = 0; i < set1.length; i++){
+        if(!holder[set1[i]]){
+            holder[set1[i]].value = 1;
+        }
+    }
+    for(var k = 0; k < set2.length; k++){
+        if(holder[set2[k]]){
+            result.push(set2[k]);
+            holder[set2[k]].value = 0;
+        }
+        else{
+            holder[set2[k]].value = 1;
+        }
+    }
+    return result;
+}
