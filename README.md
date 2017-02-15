@@ -13,4 +13,5 @@ All code will be written in JavaScript unless otherwise noted in the filename<br
 2/8/2017 - Helper functions for mergesort and quicksort<br>
 2/9/2017 - Quicksort<br>
 2/10/2017 - Mergesort<br>
-2/13/2017 - Union of Single-Sets and Intersection of Multi-Sets
+2/13/2017 - Union of Single-Sets and Intersection of Multi-Sets<br>
+2/15/2017 - Implement a Priority Queue using a SLL<br>
