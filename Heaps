@@ -1,0 +1,26 @@
+// implement heap
+
+function heap_swap(arr, x, y) {
+    var temp = arr[x];
+    arr[x] = arr[y];
+    arr[y] = temp;
+}
+
+function heapSort(arr, out, n) {
+    n = arr.length;
+    if (n === 1) {
+        out(arr);
+    }
+    else {
+        for (var i = 1; i <= n; i += 1) {
+            heapSort(arr, out, n - 1);
+            if (n % 2) {
+                var j = 1;
+            }
+            else {
+                var j = i;
+            }
+            heap_swap(arr, j - 1, n - 1);
+        }
+    }
+}
