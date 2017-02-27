@@ -1,0 +1,13 @@
+//given a BST, return an array of the values of the BST in order
+
+BST.prototype.bst2array = function () {
+    var arr = [];
+
+    function _recur(node) {
+        _recur(node.left);
+        arr.push(node.value);
+        _recur(node.right);
+    }
+    _recur(this.root);
+    return arr;
+};
