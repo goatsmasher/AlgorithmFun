@@ -16,3 +16,4 @@ All code will be written in JavaScript unless otherwise noted in the filename<br
 2/13/2017 - Union of Single-Sets and Intersection of Multi-Sets<br>
 2/15/2017 - Implement a Priority Queue using a SLL<br>
 2/20/2017 - Heap<br>
+2/27/2017 - Turn a BST into an Ordered Array<br>
