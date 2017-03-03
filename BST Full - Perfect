@@ -1,0 +1,45 @@
+// check to see if a BST is full
+
+BST.prototype.isFull = function(){
+    if(!this.root){
+        return true;
+    }
+    return _helper(this.root);
+
+    function _helper(node){
+        if((!node.left && !node.right) || (node.left && node.right)){
+            return true;
+        }
+        else{
+            return false;
+        }
+        return(_helper(node.left) && _helper(node.right));
+    };
+};
+
+//check to see if a BST is perfect
+
+BST.prototype.isPerfect = function (){
+    if(!this.root){
+        return true;
+    };
+    if(!this.isFull()){
+        return false;
+    }
+    if(!this.root.left && !this.root.right){
+        return true;
+    }
+    var result = _height(this.root, count = 0)
+    if (result !== 0){
+        return false;
+    }
+    else {
+        return true;
+    }
+    function _height(node, count){
+        var left = _height(node.left, count++);
+        var right = _height(node.right, count++);
+        return (left - right)
+    }
+
+
