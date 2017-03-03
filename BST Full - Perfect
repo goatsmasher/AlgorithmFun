@@ -41,5 +41,5 @@ BST.prototype.isPerfect = function (){
         var right = _height(node.right, count++);
         return (left - right)
     }
-
+}
 
