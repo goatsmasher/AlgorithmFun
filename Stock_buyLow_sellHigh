@@ -1,0 +1,31 @@
+//given an array of ending stock prices for each day, return the greatest possible profit
+
+function maxProfit(arr){
+    var low = arr[0];
+    var high = arr[0];
+    var profit = (high - low);
+    var t_low = arr[0];
+    var t_high = arr[0]
+    for (var i = 1; i < arr.length; i++){
+        if((arr[i] - low) > (high-low)) {
+            high = arr[i];
+        }
+        if(arr[i] < t_low) {
+            t_low = arr[i];
+            t_high = arr[i];
+        }
+        if(arr[i] > t_high && arr[i] < high) {
+            t_high = arr[i]
+        }
+        if((t_high - t_low) > (high - low)){
+            high = t_high;
+            low = t_low
+        }
+    }
+    console.log("The max profit is " + (high-low))
+}
+
+// maxProfit([9,8,14,2,7,1,4])
+// maxProfit([5,10,1,9,7,12]);
+// maxProfit([17,21,15,12,15,18,16,18,13]);
+// maxProfit([10,1,4,1,8,9,4,10,2]);
