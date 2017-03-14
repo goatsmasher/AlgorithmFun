@@ -21,3 +21,4 @@ All code will be written in JavaScript unless otherwise noted in the filename<br
 3/2/2017 - Check to see if a BST if full and check to see if it is perfectly balanced<br>
 3/8/2017 - Given a string and open parenthesis, find the matching closing parenthesis<br>
 3/11/2017 - Stock Market, buy low - sell high!<br>
+3/14/2017 - Queues - Enqueue, Dequeue, Countqueue<br>
