@@ -1,0 +1,43 @@
+// create a queue and add methods to dequeue and enqueue
+
+function SLQueue(){
+  this.head = null;
+  this.tail = null;
+  }
+function Node(val){
+  this.value = val;
+  this.next = null;
+}
+
+SLQueue.prototype.DeQueue = function(){
+  var temp = this.head;
+  this.head = this.head.next;
+  return temp;
+}
+
+SLQueue.prototype.EnQueue = function(node){
+  if(!this.head){
+    this.head = node;
+    return this;
+  }
+  else {
+    this.tail.next = node;
+    this.tail = node;
+    return this
+  }
+}
+
+//adding some extras
+SLQueue.prototype.Count = function(){
+  if (!this.head){
+    return 0;
+  }
+  var current = this.head
+  var counter = 0;
+  while(current){
+    counter+=1;
+    current = current.next
+  }
+  return counter;
+}
+
