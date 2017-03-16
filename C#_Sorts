@@ -1,0 +1,160 @@
+//  Heapsort
+public static void HeapSort(int[] input)
+{
+    //Build-Max-Heap
+    int heapSize = input.Length;
+    for (int p = (heapSize - 1) / 2; p >= 0; p--)
+        MaxHeapify(input, heapSize, p);
+ 
+    for (int i = input.Length - 1; i > 0; i--)
+    {
+        //Swap
+        int temp = input[i];
+        input[i] = input[0];
+        input[0] = temp;
+ 
+        heapSize--;
+        MaxHeapify(input, heapSize, 0);
+    }
+}
+
+private static void MaxHeapify(int[] input, int heapSize, int index)
+{
+    int left = (index + 1) * 2 - 1;
+    int right = (index + 1) * 2;
+    int largest = index;
+ 
+    if (left < heapSize && input[left] > input[index])
+        largest = left;
+    else
+        largest = index;
+ 
+    if (right < heapSize && input[right] > input[largest])
+        largest = right;
+ 
+    if (largest != index)
+    {
+        int temp = input[index];
+        input[index] = input[largest];
+        input[largest] = temp;
+ 
+        MaxHeapify(input, heapSize, largest);
+    }
+}
+
+
+// Bubblesort
+public static int[] BubbleSort(int[] arr)
+{
+    for (int i = 0; i < arr.Length-1; i++)
+    {
+        if (arr[i] > arr[i + 1])
+        {
+            int temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
+            i = -1;
+        }
+    }
+    return arr;
+}
+
+// SelectionSort
+public static int[] SelectionSort(int[t] arr){
+  for (int i = 0; i < arr.Length; i++){
+    for (int k = i + 1; k < arr.Length, k++){
+      if (arr[k] < arr[i]) {
+        int temp = arr[k];
+        arr[k] = arr[i];
+        arr[i] = temp;
+        }
+        }
+        }
+        return arr;
+}
+
+// MergeSort
+static public void DoMerge(int [] numbers, int left, int mid, int right)
+{
+    int [] temp = new int[25];
+    int i, left_end, num_elements, tmp_pos;
+
+    left_end = (mid - 1);
+    tmp_pos = left;
+    num_elements = (right - left + 1);
+
+    while ((left <= left_end) && (mid <= right))
+    {
+        if (numbers[left] <= numbers[mid])
+            temp[tmp_pos++] = numbers[left++];
+        else
+            temp[tmp_pos++] = numbers[mid++];
+    }
+
+    while (left <= left_end)
+        temp[tmp_pos++] = numbers[left++];
+
+    while (mid <= right)
+        temp[tmp_pos++] = numbers[mid++];
+
+    for (i = 0; i < num_elements; i++)
+    {
+        numbers[right] = temp[right];
+        right--;
+    }
+}
+
+static public void MergeSort_Recursive(int [] numbers, int left, int right)
+{
+  int mid;
+
+  if (right > left)
+  {
+    mid = (right + left) / 2;
+    MergeSort_Recursive(numbers, left, mid);
+    MergeSort_Recursive(numbers, (mid + 1), right);
+
+    DoMerge(numbers, left, (mid+1), right);
+  }
+}        
+ 
+// InsertionSort
+static int[] performInsertionSort(int[] inputArray)
+{
+    for (int i = 0; i < inputArray.Length-1; i++)
+    {
+        for (int j = i + 1; j > 0; j--)
+        {
+            if (inputArray[j-1] > inputArray[j])
+            {
+                int temp = inputArray[j-1];
+                inputArray[j-1] = inputArray[j];
+                inputArray[j] = temp;
+            }
+        }
+    }
+    return inputArray;
+}
+
+
+// quicksort
+
+function quicksort(array) {
+  if(array.length < 2) {
+    return array;
+  }
+
+  var pivot = array[0];
+  var left = [];
+  var right = [];
+
+  for(var i = 1; i < array.length; i++) {
+    if(array[i] < pivot) {
+      left.push(array[i]);
+    } else {
+      right.push(array[i]);
+    }
+  }
+
+  return quicksort(left).concat(pivot, quicksort(right));
+}
