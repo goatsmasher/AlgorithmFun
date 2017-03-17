@@ -1,0 +1,20 @@
+// given two objects, check to see whether they contain the same values
+
+function isSame(obj1, obj2) {
+    if (Object.keys(obj1).length == Object.keys(obj2).length) {
+        for (var i in obj1) {
+            if (typeof obj1[i] === "object" && typeof obj2[i] === "object") {
+                if (!(isSame(obj1[i], obj2[i]))) {
+                    return false;
+                }
+            }
+            else if (obj1[i] !== obj2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    else {
+        return false;
+    }
+}
