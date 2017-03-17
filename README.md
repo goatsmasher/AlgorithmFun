@@ -23,3 +23,4 @@ All code will be written in JavaScript unless otherwise noted in the filename<br
 3/11/2017 - Stock Market, buy low - sell high!<br>
 3/14/2017 - Queues - Enqueue, Dequeue, Countqueue<br>
 3/16/2017 - C# Sorts<br>
+3/17/2017 - Given two mystery objects, do they contain the same values?<br>
