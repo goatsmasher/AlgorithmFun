@@ -1,0 +1,45 @@
+ Public class ReadFileLines
+    {
+        Dictionary<string, int> myDict = new Dictionary<string, int>();
+
+        public void ReadLines(string inputFile)
+        {
+            myDict = new Dictionary<string, int>();
+
+            using (var file = File.IO.ReadLine(inputFile))
+            {
+                while (file != null)
+                {
+                    ParseLine(file.GetData());
+                    file.ReadLine();
+                }
+
+            }
+
+            PrintOutput();
+        }
+
+        public void ParseLine(string line)
+        {
+            if (myDict[line] == 0) 
+            {
+                myDict[line] = 1;
+            }
+            else
+            {
+                myDict[line] += 1;
+            }
+
+        }
+
+
+        public void PrintOutput()
+        {
+            foreach (KeyValuePair<string, int> line in myDict)
+            {
+                string outLine = line.Key + " occured: " + line.Value + " times.";
+                Console.WriteLine(outLine);
+            }
+        }
+
+    }
