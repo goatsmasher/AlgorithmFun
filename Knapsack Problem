@@ -1,0 +1,34 @@
+//this is an ongoing solution to the classic knapsack problem -- not yet finished
+
+function knapsack(arr, maxweight){
+	var maxtotal = 0;
+	for(var i = 0; i < arr.length; i++){
+		var total = (_knapsack(arr, i, 0, maxweight, 0));
+		if(total > maxtotal) {
+			maxtotal = total;
+		}
+	}
+	console.log(maxtotal);
+}
+
+function _knapsack(arr, indx, curweight, maxweight, value){
+	if(!arr[indx]){
+		return value;
+	}
+	if (arr[indx].weight <= maxweight-curweight){
+		curweight += arr[indx].weight;
+		value += arr[indx].value;
+		return Math.max(_knapsack(arr, indx + 1, curweight, maxweight, value), _knapsack(arr, indx, curweight, maxweight, value));
+	}
+	else{
+		return value;
+	}
+}
+
+
+var tosteal = [{"weight": 5, "name": "carrot", "value": 16},
+			{"weight": 6, "name": "mince", "value": 0},
+			{"weight": 4, "name": "peach", "value": 15}];
+
+
+knapsack(tosteal, 9);
