@@ -1,0 +1,30 @@
+// Given two SLL's, "ZIP" them in place and return one SLL
+
+function SLLZip(SLL1, SLL2) {
+    var c1 = SLL1.head;
+    var c2 = SLL2.head;
+    var temp = c1.next;
+    while (c1 || c2) {
+        if (temp && c2.next) {
+            c1.next = c2;
+            SLL2.Head = c2.next;
+            c2.next = temp;
+            c2 = SLL2.Head;
+            c1 = temp;
+            temp = c1.next;
+        }
+        else if (!temp && c2) {
+            c1.next = c2;
+            break;
+        }
+        else if (c1 && c2) {
+            c2.next = temp;
+            c1.next = c2;
+            break;
+        }
+        else {
+            break;
+        }
+    }
+    return SLL1;
+}
