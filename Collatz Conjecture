@@ -1,0 +1,41 @@
+//Collatz Conjecture
+//The conjecture can be summarized as follows. Take any positive integer n. If n is even, divide it by 2 to get n / 2.
+//If n is odd, multiply it by 3 and add 1 to obtain 3n + 1. Repeat the process indefinitely. 
+//The conjecture is that no matter what number you start with, you will always eventually reach 1.
+//For this algorithm, given an integer which will repesent the ceiling range, return the integer and the greatest number of steps to 1.
+
+
+function _collatzer(num){
+    if (num % 2 == 0){
+        return num/2;
+    }
+    else{
+        return num*3 + 1;
+    }
+}
+
+
+
+
+function Collazter(num) {
+    var maxSteps =[1,0];
+    var numSteps = {1:0};
+    for (var i = num; i > Math.floor(num/2); i--) {
+        var tempArr = [];
+        var rg = i;
+        while(!numSteps[rg]){
+            tempArr.push(rg);
+            rg = _collatzer(rg);
+        }
+        for(var k = 0; k < tempArr.length; k++){
+            numSteps[tempArr[k]] = ((tempArr.length - k) + numSteps[rg]);
+            if (numSteps[tempArr[0] > maxSteps[1]]){
+                maxSteps = [tempArr[0], numSteps[tempArr[0]]];
+            }
+        }
+        
+    }
+    return maxSteps;
+}
+
+Collazter(1);
