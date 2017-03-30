@@ -27,3 +27,4 @@ All code will be written in JavaScript unless otherwise noted in the filename<br
 3/20/2017 - First iteration of solution to classic Knapsack problem (not complete)<br>
 3/20/2017 - Given a file, iterate through the file and print out the number of unique strings encountered (C#)<br> 
 3/29/2017 - 'Zip' two SLL's into one<br>
+3/30/2017 - Solve Collatzer
