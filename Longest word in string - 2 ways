@@ -1,0 +1,35 @@
+//Given a string, return the longest word(s) in that string
+
+
+
+//Iterative
+function LongestWord(string) {
+    var str = string.split(" ");
+    var returnArr = [" "];
+    for (var i = 0; i < str.length; i++) {
+        if (str[i].length == returnArr[0].length){
+            returnArr.push(str[i]);
+        }
+        if (str[i].length > returnArr[0].length){
+            returnArr = [str[i]];
+        }
+    }
+    return(returnArr);
+}
+
+
+//Recursively
+
+function LongestWord(string){
+    var str = string.split(" ");
+    if(str.length == 1){
+        return str[0];
+    }
+    if(str[0].length >= str[1].length){
+        str.splice(1,1);
+        return LongestWord(str.join(" "));
+    }
+    if(str[0].length <= str[1].length){
+        return LongestWord(str.slice(1, str.length).join(" "));
+    }
+}
