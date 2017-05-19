@@ -32,3 +32,4 @@ All code will be written in JavaScript unless otherwise noted in the filename<br
 4/5/2017 - Given an array and an size(integer), return a new array broken down by size<br> 
 4/7/2017 - Given an array and elements to remove, return an array without selected elements<br>
 5/10/2017 - Are all letters in a word in alphabetical order<br>
+5/19/2017 - Interview Coding Challenge -> given an input of employees and their availability, write an application to find out hours of availability for requested employee on specific dates.
