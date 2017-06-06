@@ -1,0 +1,10 @@
+function searchAndDestory(string, before, after) {
+	let toReturn = string.split(" ");
+  let len = toReturn.length
+	for (let i = 0; i len; i++){
+		if (toReturn[i] == before){
+			toReturn[i] = after;
+		}
+	}
+	return toReturn.join(" ");
+}
