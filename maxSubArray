@@ -1,0 +1,18 @@
+function maxSubArray(array){
+    var max = Math.max.apply(null, array)
+    if (max < 0){
+        return max;
+    }
+    else if (array.length === 1){
+        return array[0]
+    }
+    else{
+        var currentmax = array[0];
+        var positionmax = array[0];
+        for (let i=1; i<array.length; i++){
+            positionmax = Math.max(array[i], positionmax + array[i]);
+            currentmax = Math.max(currentmax, positionmax)
+        }
+        return currentmax
+    }
+}
