@@ -1,0 +1,48 @@
+//Given first node of a singly linked list, create a recursive function that returns numbers of nodes in that list. Assume list contains no loops and is short enough that you will not 'blow your stack'.
+
+
+function Node(value){
+	this.value = value;
+	this.next = null;
+}
+
+function SLL() {
+	this.head = null;
+}
+
+SLL.prototype.addNode = function(Node){
+	if (this.head == null){
+		this.head = Node;
+	}
+	else {
+		let current = this.head;
+		while(current.next){
+			current = current.next;
+		}
+		current.next = Node;
+	}
+	return this;
+};
+
+SLL.prototype.findLength = function() {
+	return findLengthR(this.head, 0);
+};
+
+function findLengthR(node, count){
+	if (node === null){
+		console.log(count);
+		
+	}
+	else {
+		findLengthR(node.next, count += 1);
+	}
+}
+
+
+const myNode = new Node(5);
+const myNode2 = new Node(6);
+const myList = new SLL();
+myList.addNode(myNode);
+myList.addNode(myNode2);
+console.log(myList);
+myList.findLength();
