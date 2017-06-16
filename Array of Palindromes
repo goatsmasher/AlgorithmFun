@@ -1,7 +1,18 @@
 //given an array of strings, return an array of only strings that are palindromes
 
 const filterArrayForPalindromes = (array) => {
-	return array.filter((x) => { 
-		return x === x.split('').reverse().join('');
+	return array.filter(element => { 
+		return x === element.split('').reverse().join('');
 	});
 };
+
+
+function filterArrayForPalindroms(array){
+	const returnArray = [];
+	for(let i = 0; i < array.length; i++){
+		if(array[i] === array[i].split("").revserse().join("")){
+			returnArray.push(array[i];
+		}
+	}
+	return returnArray;
+}
