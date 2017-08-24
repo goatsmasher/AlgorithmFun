@@ -36,3 +36,4 @@ All code will be written in JavaScript unless otherwise noted in the filename<br
 6/6/2017 - Perform a search and replace on the sentence using the arguments provided and return the new sentence.<br>
 6/10/2017 - Given an unsorted array, return the greatest sum of any subarray<br>
 6/15/2017 - Given first node of a singly linked list, create a recursive function that returns number of nodes in that list.<br>
+8/24/2017 - Given a string such as  “1,2,3,4 ; 4,5,6”, where the ; represents the split between the two sides, return in a string with no trailing whitespace or commas the intersecting numbers (numbers that happen on both sides)
