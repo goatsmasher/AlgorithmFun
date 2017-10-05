@@ -1,0 +1,181 @@
+class Node {
+	constructor(value) {
+		this.value = value;
+		this.next = null;
+		this.previous = null;
+	}
+}
+
+class DoubleLinkedList {
+	constructor() {
+		this.head = null;
+		this.tail = null;
+		this.count = 0;
+	}
+	addToBack(val) {
+		const nodeToAdd = new Node(val);
+
+		if (!this.head) {
+			this.head = nodeToAdd;
+			this.tail = this.head;
+		}
+		else {
+			this.tail.next = nodeToAdd;
+			nodeToAdd.previous = this.tail;
+			this.tail = nodeToAdd;
+		}
+		this.increaseCount();
+	}
+	addToFront(val) {
+		const nodeToAdd = new Node(val);
+
+		if (!this.head) {
+			this.head = nodeToAdd;
+			this.tail = this.head;
+		}
+		else {
+			this.head.previous = nodeToAdd;
+			nodeToAdd.next = this.head;
+			this.head = nodeToAdd;
+		}
+		this.increaseCount();
+	}
+	removeFromFront() {
+		if (this.count > 1) {
+			this.head.next.previous = null;
+			this.head = this.head.next;
+			this.decreaseCount();
+		}
+		else {
+			this.head = null;
+			this.tail = null;
+			this.count = 0;
+			console.log("nothing left");
+		}
+	}
+	removeFromBack() {
+		if (this.count > 1) {
+			this.tail.previous.next = null;
+			this.tail = this.tail.previous;
+			this.decreaseCount();
+		}
+		else {
+			this.head = null;
+			this.tail = null;
+			this.count = 0;
+		}
+	}
+	remove(val) {
+		if (this.count > 0) {
+			if (this.tail.value === val) {
+				this.removeFromBack();
+			}
+			else {
+				let current = this.head;
+				while (current) {
+					if (current.value === val) {
+						current.previous.next = current.next;
+						current.next.previous = current.previous;
+						this.decreaseCount();
+						break;
+					}
+					else {
+						current = current.next;
+					}
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+	increaseCount() {
+		return this.count += 1;
+	}
+	decreaseCount() {
+		return this.count -= 1;
+	}
+	contains(val) {
+		if (this.count === 0) {
+			return false;
+		}
+		else {
+			let current = this.head;
+			while (current) {
+				if (current.value === val) {
+					return true;
+				}
+				else {
+					current = current.next;
+				}
+			}
+			return false;
+		}
+	}
+	reverse() {
+		if (this.count < 2) {
+			return;
+		}
+		let current = this.head;
+		let start = this.head;
+		let temp = null;
+		while (current) {
+			temp = current.previous;
+			current.previous = current.next;
+			current.next = temp;
+			current = current.previous;
+		}
+		this.head = this.tail;
+		this.tail = start;
+	}
+	createCircle() {
+		const start = this.head;
+		let current = start;
+		while (current.next) {
+			current = current.next;
+		}
+		current.next = start;
+	}
+	show() {
+		console.log(this.head);
+		console.log("Size: ", this.count);
+	}
+}
+function mergeLinkedLists(list1, list2) {
+	let node_1 = list1.head;
+	let node_2 = list2.head;
+	let placeholder = null;
+	let header = node_1.value < node_2.value ?
+		list1.head
+		:
+		list2.head;
+	const newList = new DoubleLinkedList();
+	newList.addToBack(header);
+	while (node_1 && node_2) {
+		if (node_1.value <= node_2.value) {
+			newList.addToBack(node_1.value);
+			node_1 = node_1.next;
+		}
+		else {
+			newList.addToBack(node_2.value);
+			node_2 = node_2.next;
+		}
+	}
+	return newList;
+}
+
+
+
+DoubleLinkedList.prototype.isCircular = function () {
+	if (this.head.next) {
+		let runner = this.head;
+		let jumper = this.head.next;
+		while (jumper) {
+			if (runner === jumper) {
+				return true;
+			}
+			runner = runner.next;
+			jumper = jumper.next.next;
+		}
+	}
+	return false;
+};
