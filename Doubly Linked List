@@ -111,22 +111,6 @@ class DoubleLinkedList {
 			return false;
 		}
 	}
-	reverse() {
-		if (this.count < 2) {
-			return;
-		}
-		let current = this.head;
-		let start = this.head;
-		let temp = null;
-		while (current) {
-			temp = current.previous;
-			current.previous = current.next;
-			current.next = temp;
-			current = current.previous;
-		}
-		this.head = this.tail;
-		this.tail = start;
-	}
 	createCircle() {
 		const start = this.head;
 		let current = start;
@@ -139,30 +123,22 @@ class DoubleLinkedList {
 		console.log(this.head);
 		console.log("Size: ", this.count);
 	}
-}
-function mergeLinkedLists(list1, list2) {
-	let node_1 = list1.head;
-	let node_2 = list2.head;
-	let placeholder = null;
-	let header = node_1.value < node_2.value ?
-		list1.head
-		:
-		list2.head;
-	const newList = new DoubleLinkedList();
-	newList.addToBack(header);
-	while (node_1 && node_2) {
-		if (node_1.value <= node_2.value) {
-			newList.addToBack(node_1.value);
-			node_1 = node_1.next;
-		}
-		else {
-			newList.addToBack(node_2.value);
-			node_2 = node_2.next;
-		}
+}function mergeLinkedLists(list1, list2) {
+	if (list1 === null) {
+		return list2;
 	}
-	return newList;
+	if (list2 === null) {
+		return list1;
+	}
+	if (list1.value < list2.value) {
+		list1.next = mergeLinkedLists(list1.next, list2)
+		return list1;
+	}
+	else {
+		list2.next = mergeLinkedLists(list2.next, list1);
+		return list2;
+	}
 }
-
 
 
 DoubleLinkedList.prototype.isCircular = function () {
